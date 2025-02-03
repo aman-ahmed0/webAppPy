@@ -23,6 +23,8 @@ resource "azurerm_resource_group" "devops_rg" {
 }
 
 resource "azurerm_container_group" "devops_app" {
+  depends_on = [random_string.suffix]
+  
   name                = "devops-app-container"
   location            = azurerm_resource_group.devops_rg.location
   resource_group_name = azurerm_resource_group.devops_rg.name
