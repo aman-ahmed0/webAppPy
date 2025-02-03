@@ -6,12 +6,12 @@ terraform {
     }
   }
 
-  backend "azurerm" {
-    resource_group_name  = "terraform-backend-rg"
-    storage_account_name = "terraformbackendstorage"
-    container_name       = "tfstate"
-    key                  = "terraform.tfstate"
-  }
+#  backend "azurerm" {
+ #   resource_group_name  = "terraform-backend-rg"
+  #  storage_account_name = "terraformbackendstorage"
+   # container_name       = "tfstate"
+   # key                  = "terraform.tfstate"
+#  }
 }
 
 provider "azurerm" {
@@ -37,7 +37,7 @@ resource "azurerm_container_group" "devops_app" {
 
   container {
     name   = "devops-app"
-    image  = "yourdockerhubusername/yourimage:latest"
+    image  = "ahmedaman0/webapppy:latest"
     cpu    = "0.5"
     memory = "1.5"
 
