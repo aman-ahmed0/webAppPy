@@ -5,13 +5,6 @@ terraform {
       version = "~> 3.0"
     }
   }
-
-#  backend "azurerm" {
- #   resource_group_name  = "terraform-backend-rg"
-  #  storage_account_name = "terraformbackendstorage"
-   # container_name       = "tfstate"
-   # key                  = "terraform.tfstate"
-#  }
 }
 
 provider "azurerm" {
@@ -25,7 +18,7 @@ provider "azurerm" {
 
 
 resource "azurerm_resource_group" "devops_rg" {
-  name     = "devops-project-rg"
+  name     = "devops-proj-rg"
   location = "East US"
 }
 
