@@ -17,7 +17,7 @@ provider "azurerm" {
 }
 
 
-resource "azurerm_resource_group" "devops_rg" {
+resource "azurerm_resource_group" "devopsproject_rg" {
   name     = "devops-proj-rg"
   location = "East US"
 }
