@@ -1,25 +1,19 @@
-variable "azure_subscription_id" {
-  description = "Azure Subscription ID"
-  type        = string
+variable "aws_region" {
+  description = "AWS region to deploy resources"
+  default     = "us-east-1"
 }
 
-variable "azure_client_id" {
-  description = "Azure Client ID (Service Principal)"
-  type        = string
+variable "instance_type" {
+  description = "EC2 instance type"
+  default     = "t2.micro"
 }
 
-variable "azure_client_secret" {
-  description = "Azure Client Secret (Service Principal)"
-  type        = string
-  sensitive   = true
+variable "ami_id" {
+  description = "Amazon Linux 2 AMI ID"
+  default     = "ami-0c55b159cbfafe1f0"
 }
 
-variable "azure_tenant_id" {
-  description = "Azure Tenant ID"
-  type        = string
-}
-
-variable "ssh_public_key" {
-  description = "SSH Public Key for VM Authentication"
+variable "ssh_key_name" {
+  description = "SSH key pair name for EC2 instance"
   type        = string
 }

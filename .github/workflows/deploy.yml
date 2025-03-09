@@ -42,20 +42,26 @@ jobs:
       with:
         terraform_version: 1.6.0
 
+    - name: Configure AWS Credentials
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: echo "AWS credentials configured"
+
+    - name: Create SSH Key File
+      run: |
+        echo "${{ secrets.AWS_SSH_PRIVATE_KEY }}" > my-aws-key.pem
+        chmod 400 my-aws-key.pem
+
     - name: Terraform Init
       env:
-        TF_VAR_azure_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        TF_VAR_azure_client_id: ${{ secrets.AZURE_CLIENT_ID }}
-        TF_VAR_azure_client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-        TF_VAR_azure_tenant_id: ${{ secrets.AZURE_TENANT_ID }}
-        TF_VAR_ssh_public_key: ${{ secrets.SSH_PUBLIC_KEY }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       run: terraform init
 
     - name: Terraform Apply
       env:
-        TF_VAR_azure_subscription_id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        TF_VAR_azure_client_id: ${{ secrets.AZURE_CLIENT_ID }}
-        TF_VAR_azure_client_secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-        TF_VAR_azure_tenant_id: ${{ secrets.AZURE_TENANT_ID }}
-      run: terraform apply -auto-approve
-  
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: terraform apply -auto-approve -var="ssh_key_name=my-aws-key"
+      
