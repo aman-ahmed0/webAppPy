@@ -11,7 +11,9 @@ resource "aws_instance" "web" {
     Name = "FreeTierEC2"
   }
 }
-*/
+
 output "instance_public_ip" {
   value = aws_instance.web.public_ip
 }
+
+*/
