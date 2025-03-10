@@ -1,7 +1,7 @@
 provider "aws" {
   region = var.aws_region
 }
-
+/*
 resource "aws_instance" "web" {
   ami           = var.ami_id
   instance_type = var.instance_type
@@ -11,7 +11,7 @@ resource "aws_instance" "web" {
     Name = "FreeTierEC2"
   }
 }
-
+*/
 output "instance_public_ip" {
   value = aws_instance.web.public_ip
 }
