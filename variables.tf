@@ -10,7 +10,7 @@ variable "instance_type" {
 
 variable "ami_id" {
   description = "Amazon Linux 2 AMI ID"
-  default     = "ami-0c55b159cbfafe1f0"
+  default     = "ami-08b5b3a93ed654d19"
 }
 
 variable "ssh_key_name" {
