@@ -57,5 +57,5 @@ jobs:
       run: terraform init
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve -var="ssh_key_name=my-aws-key"
+      run: terraform destroy -auto-approve -var="ssh_key_name=my-aws-key"
       
