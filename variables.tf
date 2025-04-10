@@ -17,3 +17,4 @@ variable "ssh_key_name" {
   description = "SSH key pair name for EC2 instance"
   default     = "my-aws-key"
 }
+#
