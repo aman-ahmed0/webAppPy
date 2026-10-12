@@ -1,5 +1,6 @@
 # Python Web App | Docker & AWS Provisioning
 
+<img src="assets/python-webapp-workflow.svg" width="100%" alt="GitHub Actions builds and publishes a Docker image to Docker Hub, then runs Terraform to provision AWS EC2. Application deployment to EC2 is not implemented.">
 An earlier DevOps learning project combining a Flask application, Docker image publishing with GitHub Actions, and AWS EC2 provisioning with Terraform.
 
 **Scope:** the workflow builds and publishes the application image and provisions an EC2 instance. It does not install Docker on EC2, deploy the application to the instance, or run automated tests.
